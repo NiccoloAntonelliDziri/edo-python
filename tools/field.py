@@ -14,6 +14,6 @@ class Field:
 
         Yarr = [X, Y]
 
-        u, v = model.rhs(Yarr, )
+        u, v = model.rhs(Yarr, t)
         
         return pl.quiver(X, Y, u, v)
