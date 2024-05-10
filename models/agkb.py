@@ -1,6 +1,11 @@
 from .models import AutonomSys
 
+
 """
+Arditi-Ginzburg ratio-dependent functional response
+
+Kuang-Beretta Model:
+
 x' = x * (a - b * x) - c*x*y / (m*y + x)
 y' =  -d*y + f*x*y / (m*y + x)
 
