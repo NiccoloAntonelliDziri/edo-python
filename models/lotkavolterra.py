@@ -39,7 +39,8 @@ class LotkaVolterra(AutonomSys):
         eps = self.get_eps()
 
         x = y_vector[0]
-        y = y_vector[0]
+        y = y_vector[1]
+
 
         dxdt = x * (kappa - y )
         dydt = y * ( x - eps)
