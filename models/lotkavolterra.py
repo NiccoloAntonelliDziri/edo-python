@@ -30,9 +30,12 @@ class LotkaVolterra(AutonomSys):
     def set_eps(self, neweps):
         self.__eps = neweps
 
-    def rhs(self, x, y):
+    def rhs(self, y_vector, t):
         kappa = self.get_kappa()
         eps = self.get_eps()
+
+        x = y_vector[0]
+        y = y_vector[0]
 
         dxdt = x * (kappa - y )
         dydt = y * ( x - eps)

@@ -51,7 +51,7 @@ class PhaseDiagram:
         # -- Champs de vecteurs
         if show_field:
             field = Field()
-            field.plot(model, xaxis, yaxis)
+            field.plot(model, xaxis, yaxis, taxis)
 
         plt.show()
 
