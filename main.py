@@ -9,7 +9,12 @@ taxis = ax.Axis(0,4,100,"t")
 model = lv.LotkaVolterra(0.4, 0.2)
 
 y0 = [1,1]
-liste_cond_init = [y0]
+y1 = [1.5,1.5]
+y2 = [2.5,3]
+y3 = [3,2.5]
+y4 = [1.2,3]
+
+liste_cond_init = [y0, y1, y2, y3, y4]
 
 PD = PhaseDiagram() 
 PD.portrait(model, xaxis, yaxis, taxis, liste_cond_init)
