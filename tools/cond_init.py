@@ -1,12 +1,16 @@
 class Initial:
-    def __init__(self, coords):
+    def __init__(self, coords, color = 'b'):
         self._coords = coords
+        self._color = color
 
     """
     Renvoie un tuple contenant les conditions initiales
     """
     def get_coords(self):
         return self._coords
+
+    def get_color(self):
+        return self._color
 
     def set_cond_init(self, coords):
         self._coords = coords
