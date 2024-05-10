@@ -21,6 +21,10 @@ class PhaseDiagram:
     def set_figsize(self, newfigsize):
         self.__figsize = newfigsize
 
+    """
+    initials est une liste de liste. On itère sur toutes les conditions initiales et chaque condition
+    initiale est un array pour être utilisé dans la fonction odeint de scipy
+    """
     def portrait(self, model, xaxis, yaxis, taxis, initials, show_field = True, exportpng = False):
         # -- préparer le graphique
         fig, phases = plt.subplots(figsize = self.get_figsize())
@@ -40,9 +44,7 @@ class PhaseDiagram:
                         taxis.get_end(),
                         taxis.get_nb_points_subdivision())
 
-        condi_init = initials.get_initials()
-        for init in condi_init:
-            y0 = init.get_coords()
+        for y0 in initials:
             traj = odeint(model.get_rhs(), y0, t)
             phases.plot(traj[:, 0], traj[:, 1])
 

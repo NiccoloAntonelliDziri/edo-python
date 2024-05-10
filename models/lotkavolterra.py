@@ -37,7 +37,6 @@ class LotkaVolterra(AutonomSys):
         dxdt = x * (kappa - y )
         dydt = y * ( x - eps)
 
-
         # Temporaire pour avoir la meme fonction que dans le tp
         dxdt = x * (( x - eps ) * (1. - (1./ kappa ) * x ) / ( x + eps ) - y )
         dydt = y * ( x - 1)
