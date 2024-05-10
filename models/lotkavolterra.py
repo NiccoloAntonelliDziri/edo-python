@@ -29,7 +29,11 @@ class LotkaVolterra(AutonomSys):
 
     def set_eps(self, neweps):
         self.__eps = neweps
-
+    
+    """
+    t est utilisé uniquement dans le cas ou c'est le systèlme est non autonome
+    sinon le paramètre n'est pas utilisé
+    """
     def rhs(self, y_vector, t):
         kappa = self.get_kappa()
         eps = self.get_eps()
