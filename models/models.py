@@ -14,5 +14,5 @@ class AutonomSys:
     """
     Retourne une liste de taille = dimensions du système
     """
-    def rhs(self, y_vector, t):
+    def rhs(self, x, y):
         return []
