@@ -13,11 +13,11 @@ model = AGKB(1,1,1,1,1,1)
 
 # Conditions initiales
 cond_init = Initials()
-cond_init.append_initial(1,1, 'red')
-cond_init.append_initial(1.5,1.5)
-cond_init.append_initial(2.5,3)
-cond_init.append_initial(3,2.5)
-cond_init.append_initial(1.2,3)
+cond_init.append(1,1, 'red')
+cond_init.append(1.5,1.5)
+cond_init.append(2.5,3)
+cond_init.append(3,2.5, 'green', 'dashed')
+cond_init.append(1.2,3)
 
 PD = PhaseDiagram() 
 PD.portrait(model, xaxis, yaxis, taxis, cond_init)

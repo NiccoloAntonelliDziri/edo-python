@@ -49,7 +49,7 @@ class PhaseDiagram:
 
         for y0 in initials:
             traj = odeint(model.get_rhs(), y0.get_coords(), t)
-            phases.plot(traj[:, 0], traj[:, 1], y0.get_color())
+            phases.plot(traj[:, 0], traj[:, 1], color = y0.get_color(), linestyle = y0.get_linestyle())
 
         # -- Champs de vecteurs
         if show_field:

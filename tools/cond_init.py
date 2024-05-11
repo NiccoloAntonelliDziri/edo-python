@@ -1,8 +1,9 @@
 class Initial:
-    def __init__(self, x, y, color = 'b'):
+    def __init__(self, x, y, color = 'blue', linestyle = 'solid'):
         self._x = x
         self._y = y
         self._color = color
+        self._linestyle = linestyle
 
     def get_coords(self):
         return [self._x, self._y]
@@ -10,11 +11,20 @@ class Initial:
     def get_color(self):
         return self._color
 
+    def get_linestyle(self):
+        return self._linestyle
+
     def set_x(self, x):
         self._x = x
 
     def set_y(self, y):
         self._y = y
+
+    def set_color(self, color):
+        self._color = color
+
+    def set_linestyle(self, linestyle):
+        self._linestyle = linestyle
 
 """
 Conteneur pour les conditions initiales
@@ -41,8 +51,8 @@ class Initials:
         return self._initials
 
     # No error handling
-    def append_initial(self, x, y, color = 'b'):
-        self._initials.append(Initial(x, y, color))
+    def append(self, x, y, color = 'blue', linestyle = 'solid'):
+        self._initials.append(Initial(x, y, color, linestyle))
         self._nb_initials += 1
 
     # No error handling
