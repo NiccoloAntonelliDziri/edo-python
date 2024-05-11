@@ -20,7 +20,8 @@ cond0.append(2.5,3)
 cond0.append(3,2.5, 'green', 'dashed')
 cond0.append(1.2,3)
 
-# Points à afficher en plus des trajectoires
+# Points à afficher en plus des trajectoires (facultatif)
+# Ce sont les points critiques du modèle
 # ici linestyle ne sert à rien
 points = Initials()
 points.append(model.pt_0()[0], model.pt_0()[1], 'red')
