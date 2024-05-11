@@ -21,4 +21,9 @@ cond_init.append(3,2.5, 'green', 'dashed')
 cond_init.append(1.2,3)
 
 PD = PhaseDiagram(field_color = 'black') # On peut changer la couleur du champ de vecteur
-PD.portrait(model, xaxis, yaxis, taxis, cond_init)
+
+# On peut automatiquement exporter le graphique en png avec exportpng = True
+# On peut ne pas afficher le champ de vecteur avec show_field = False
+# Le nom est le titre du graphique Phase Diagram, on peut le changer avec set_title ou
+# directement en modifiant le titre dans le constructeur
+PD.portrait(model, xaxis, yaxis, taxis, cond_init, show_field = True, exportpng = False)
