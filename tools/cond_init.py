@@ -32,18 +32,20 @@ Conteneur pour les conditions initiales
 C'est un itérable qui contient des objets Initial
 """
 class Initials:
-    def __init__(self, initials = list()):
-        self._initials = initials
-        self._nb_initials = len(initials)
+    def __init__(self):
+        self._initials = list()
+        self._nb_initials = len(self._initials)
+
+        # sert de compteur pour l'itérateur
+        self.__i = 0
 
     def __iter__(self):
         return iter(self._initials)
 
     def __next__(self):
-        self.i = 0
-        if self.i < self._nb_initials:
-            self.i += 1
-            return self._initials[self.i]
+        if self.__i < self._nb_initials:
+            self.__i += 1
+            return self._initials[self.__i]
         else:
             raise StopIteration
 

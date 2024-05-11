@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+from .cond_init import Initials
 
 from .field import Field
 
@@ -35,7 +36,7 @@ class PhaseDiagram:
     initials est une liste de liste. On itère sur toutes les conditions initiales et chaque condition
     initiale est un array pour être utilisé dans la fonction odeint de scipy
     """
-    def portrait(self, model, xaxis, yaxis, taxis, initials,
+    def portrait(self, model, xaxis, yaxis, taxis, initials, points,
                  show_field = True, normalize_arrows = False, exportpng = False):
         # -- préparer le graphique
         fig, phases = plt.subplots(figsize = self.get_figsize())
@@ -64,6 +65,10 @@ class PhaseDiagram:
             field = Field(self.get_field_color(), normalize_arrows)
             field.plot(model, xaxis, yaxis, taxis)
 
+        # -- Points supplémentaires
+        for point in points:
+            plt.plot(point.get_coords()[0], point.get_coords()[1], point.get_color(), marker = 'x')
+    
         plt.show()
 
         if exportpng:
