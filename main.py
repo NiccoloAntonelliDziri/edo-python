@@ -1,22 +1,23 @@
-import models.lotkavolterra as lv
+from models.lotkavolterra import LotkaVolterra
 from models.agkb import AGKB
-import tools.axis as ax
+from tools.axis import Axis
 from tools.phase_diag import PhaseDiagram
+from tools.cond_init import Initials
 
-xaxis = ax.Axis(0, 4, 15, "x")
-yaxis = ax.Axis(-1, 4, 15, "y")
-taxis = ax.Axis(0,50,500,"t")
+xaxis = Axis(0, 4, 15, "x")
+yaxis = Axis(0, 4, 15, "y")
+taxis = Axis(0,50,500,"t")
 
-# model = lv.LotkaVolterra(0.4, 0.2)
+# model = LotkaVolterra(0.4, 0.2)
 model = AGKB(1,1,1,1,1,1)
 
-y0 = [1,1]
-y1 = [1.5,1.5]
-y2 = [2.5,3]
-y3 = [3,2.5]
-y4 = [1.2,3]
-
-liste_cond_init = [y0, y1, y2, y3, y4]
+# Conditions initiales
+cond_init = Initials()
+cond_init.append_initial(1,1, 'red')
+cond_init.append_initial(1.5,1.5)
+cond_init.append_initial(2.5,3)
+cond_init.append_initial(3,2.5)
+cond_init.append_initial(1.2,3)
 
 PD = PhaseDiagram() 
-PD.portrait(model, xaxis, yaxis, taxis, liste_cond_init)
+PD.portrait(model, xaxis, yaxis, taxis, cond_init)

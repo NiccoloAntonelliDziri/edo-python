@@ -9,6 +9,9 @@ class PhaseDiagram:
         self.__title = title
         self.__figsize = figsize
 
+    def __str__(self):
+        return self.__title
+
     def get_title(self):
         return self.__title
 
@@ -45,8 +48,8 @@ class PhaseDiagram:
                         taxis.get_nb_points_subdivision())
 
         for y0 in initials:
-            traj = odeint(model.get_rhs(), y0, t)
-            phases.plot(traj[:, 0], traj[:, 1])
+            traj = odeint(model.get_rhs(), y0.get_coords(), t)
+            phases.plot(traj[:, 0], traj[:, 1], y0.get_color())
 
         # -- Champs de vecteurs
         if show_field:

@@ -11,6 +11,9 @@ class AutonomSys:
     def get_rhs(self):
         return self.rhs
 
+    def vector_to_xy(self, y_vector):
+        return y_vector[0], y_vector[1]
+
     """
     Retourne une liste de taille = dimensions du système
     """

@@ -28,9 +28,8 @@ class AGKB(AutonomSys):
         f = self.__f
         m = self.__m
 
-        x = y_vector[0]
-        y = y_vector[1]
-
+        x, y = self.vector_to_xy(y_vector)
+                
         dxdt = x*(a - b*x) - c*x*y / (m*y + x)
         dydt = -d*y + f*x*y / (m*y + x)
 
