@@ -12,6 +12,7 @@ taxis = Axis(0,50,500,"t")
 model = AGKB(1,1,1,1,1,1)
 
 # Conditions initiales
+# paramètres : x, y, couleur, style
 cond_init = Initials()
 cond_init.append(1,1, 'red')
 cond_init.append(1.5,1.5)
@@ -19,5 +20,5 @@ cond_init.append(2.5,3)
 cond_init.append(3,2.5, 'green', 'dashed')
 cond_init.append(1.2,3)
 
-PD = PhaseDiagram() 
+PD = PhaseDiagram(field_color = 'black') # On peut changer la couleur du champ de vecteur
 PD.portrait(model, xaxis, yaxis, taxis, cond_init)

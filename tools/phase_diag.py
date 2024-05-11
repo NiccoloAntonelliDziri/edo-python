@@ -5,9 +5,10 @@ from scipy.integrate import odeint
 from .field import Field
 
 class PhaseDiagram:
-    def __init__(self, title = "Phase Diagram", figsize = (10, 6)):
+    def __init__(self, title = "Phase Diagram", figsize = (10, 6), field_color = 'green'):
         self.__title = title
         self.__figsize = figsize
+        self.__field_color = field_color
 
     def __str__(self):
         return self.__title
@@ -18,11 +19,17 @@ class PhaseDiagram:
     def get_figsize(self):
         return self.__figsize
 
+    def get_field_color(self):
+        return self.__field_color
+
     def set_title(self, newtitle):
         self.__title = newtitle
 
     def set_figsize(self, newfigsize):
         self.__figsize = newfigsize
+
+    def set_field_color(self, newcolor):
+        self.__field_color = newcolor
 
     """
     initials est une liste de liste. On itère sur toutes les conditions initiales et chaque condition
@@ -53,7 +60,7 @@ class PhaseDiagram:
 
         # -- Champs de vecteurs
         if show_field:
-            field = Field()
+            field = Field(self.get_field_color())
             field.plot(model, xaxis, yaxis, taxis)
 
         plt.show()
