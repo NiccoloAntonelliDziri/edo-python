@@ -35,7 +35,8 @@ class PhaseDiagram:
     initials est une liste de liste. On itère sur toutes les conditions initiales et chaque condition
     initiale est un array pour être utilisé dans la fonction odeint de scipy
     """
-    def portrait(self, model, xaxis, yaxis, taxis, initials, show_field = True, exportpng = False):
+    def portrait(self, model, xaxis, yaxis, taxis, initials,
+                 show_field = True, normalize_arrows = False, exportpng = False):
         # -- préparer le graphique
         fig, phases = plt.subplots(figsize = self.get_figsize())
 
@@ -60,7 +61,7 @@ class PhaseDiagram:
 
         # -- Champs de vecteurs
         if show_field:
-            field = Field(self.get_field_color())
+            field = Field(self.get_field_color(), normalize_arrows)
             field.plot(model, xaxis, yaxis, taxis)
 
         plt.show()

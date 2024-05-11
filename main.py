@@ -26,4 +26,5 @@ PD = PhaseDiagram(field_color = 'black') # On peut changer la couleur du champ d
 # On peut ne pas afficher le champ de vecteur avec show_field = False
 # Le nom est le titre du graphique Phase Diagram, on peut le changer avec set_title ou
 # directement en modifiant le titre dans le constructeur
-PD.portrait(model, xaxis, yaxis, taxis, cond_init, show_field = True, exportpng = False)
+PD.portrait(model, xaxis, yaxis, taxis, cond_init,
+            show_field = True, normalize_arrows = False, exportpng = False)
